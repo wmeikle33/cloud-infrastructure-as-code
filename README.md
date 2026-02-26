@@ -1,7 +1,7 @@
 ``` bash
 
-infra/
-  README.md
+-infra/
+--README.md
   versions.tf                  # provider + TF/OpenTofu version constraints
   .terraform.lock.hcl
   docs/
