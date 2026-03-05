@@ -1,42 +1,33 @@
 ``` bash
 
-├──infra/
-├──README.md
-├──versions.tf                  # provider + TF/OpenTofu version constraints
-├──.terraform.lock.hcl
-├──docs/
-    architecture.md
-    runbooks/
-      incident.md
-      rotate-secrets.md
-├──modules/                      # reusable building blocks
-    vpc/
-      main.tf variables.tf outputs.tf README.md
-    eks/
-    rds/
-    cloudwatch-alarms/
-    iam-roles/
-├──envs/
-    dev/
-      main.tf                   # composes modules for dev
-      variables.tf
-      outputs.tf
-      backend.tf                # remote state config (or partial config)
-      dev.tfvars
-    staging/
-      ...
-    prod/
-      ...
-├──policies/
-    opa/                        # optional: policy-as-code (Conftest/OPA)
-    sentinel/                   # optional
-  scripts/
-    fmt.sh
-    validate.sh
-    plan.sh
-    apply.sh
-├──.github/workflows/
-    ci.yaml                     # fmt/validate/plan on PR
-    cd.yaml
+├── README.md
+├── Makefile (or justfile)
+├── .gitignore
+├── .pre-commit-config.yaml
+├── .terraform-version (or .tool-versions)
+├── docs/
+│   ├── architecture.md
+│   └── runbooks/
+├── modules/
+│   ├── vpc/
+│   ├── ecs-service/ (or eks/)
+│   ├── rds/
+│   ├── s3-bucket/
+│   ├── iam-role/
+│   └── observability/
+├── environments/
+│   ├── dev/
+│   │   ├── main.tf
+│   │   ├── providers.tf
+│   │   ├── variables.tf
+│   │   ├── outputs.tf
+│   │   ├── versions.tf
+│   │   └── terraform.tfvars (NOT committed) + terraform.tfvars.example
+│   ├── staging/
+│   └── prod/
+├── global/
+│   ├── org-baseline/ (cloudtrail, config, guardduty, etc.)
+│   └── dns/ (route53 zones, certs, etc.)
+└── .github/workflows/ (or your CI system)
 
 ```
