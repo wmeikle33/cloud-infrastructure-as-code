@@ -1,22 +1,22 @@
 ``` bash
 
--infra/
---README.md
-  versions.tf                  # provider + TF/OpenTofu version constraints
-  .terraform.lock.hcl
-  docs/
+├──infra/
+├──README.md
+├──versions.tf                  # provider + TF/OpenTofu version constraints
+├──.terraform.lock.hcl
+├──docs/
     architecture.md
     runbooks/
       incident.md
       rotate-secrets.md
-  modules/                      # reusable building blocks
+├──modules/                      # reusable building blocks
     vpc/
       main.tf variables.tf outputs.tf README.md
     eks/
     rds/
     cloudwatch-alarms/
     iam-roles/
-  envs/
+├──envs/
     dev/
       main.tf                   # composes modules for dev
       variables.tf
@@ -27,7 +27,7 @@
       ...
     prod/
       ...
-  policies/
+├──policies/
     opa/                        # optional: policy-as-code (Conftest/OPA)
     sentinel/                   # optional
   scripts/
@@ -35,7 +35,7 @@
     validate.sh
     plan.sh
     apply.sh
-  .github/workflows/
+├──.github/workflows/
     ci.yaml                     # fmt/validate/plan on PR
     cd.yaml
 
